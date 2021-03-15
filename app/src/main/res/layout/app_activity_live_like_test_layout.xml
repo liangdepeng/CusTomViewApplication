@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dpdp.testapplication.livelike.FloatLikeView
+        android:id="@+id/like_btn"
+        android:layout_width="140dp"
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toTopOf="@+id/praise_multi_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/place_holder">
+
+        <Button
+            android:id="@+id/praise_single_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="点一次出一个爱心"
+            android:textSize="12sp" />
+
+    </com.dpdp.testapplication.livelike.FloatLikeView>
+
+    <Button
+        android:id="@+id/praise_multi_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:text="自动播放/停止点赞"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/like_btn"
+        app:layout_constraintRight_toRightOf="@+id/like_btn" />
+
+
+    <Button
+        android:id="@+id/place_holder"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/like_btn"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <com.dpdp.testapplication.livelike.LiveClickLikeView
+        android:id="@+id/like_count_v"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="60dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/place_holder"
+        app:layout_constraintLeft_toLeftOf="@+id/place_holder"
+        app:layout_constraintRight_toRightOf="@+id/place_holder"
+        app:like_click_bg_circle_color="#333333"
+        app:like_click_progress_color="@android:color/holo_blue_light"
+        app:like_click_progress_width="4dp"
+        app:like_click_text_color="@android:color/white"
+        app:like_click_text_size="20sp"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/calculate_num_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="计数器"
+        app:layout_constraintBottom_toTopOf="@+id/place_holder"
+        app:layout_constraintLeft_toLeftOf="@+id/place_holder"
+        app:layout_constraintRight_toRightOf="@+id/place_holder" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

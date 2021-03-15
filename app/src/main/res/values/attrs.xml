@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LiveClickLikeView">
+        <!-- 进度条颜色-->
+        <attr name="like_click_progress_color" format="color" />
+        <!-- 进度条宽度-->
+        <attr name="like_click_progress_width" format="dimension" />
+        <!-- 圆形背景颜色-->
+        <attr name="like_click_bg_circle_color" format="color" />
+        <!-- 文字颜色-->
+        <attr name="like_click_text_color" format="color" />
+        <!-- 文字大小 会自动进行缩放 严格说是最大的文字大小-->
+        <attr name="like_click_text_size" format="dimension" />
+    </declare-styleable>
+
+</resources>
