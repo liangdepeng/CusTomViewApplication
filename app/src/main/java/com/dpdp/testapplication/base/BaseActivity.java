@@ -1,4 +1,4 @@
-package com.dpdp.testapplication;
+package com.dpdp.testapplication.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.dpdp.testapplication.R;
 
 /**
  * Created by ldp.
