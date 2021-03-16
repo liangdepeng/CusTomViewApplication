@@ -3,3 +3,5 @@
 ### 1、点赞效果/飘爱心效果 点赞计时器  [详情请点击这里跳转](https://blog.csdn.net/Mr_Liangxiaobai/article/details/114531518 "详情")
 <div align=center><img src="https://img-blog.csdnimg.cn/20210308145447687.gif"/></div>
 
+### 2、TextView简易跳动效果  [详情请点击这里跳转](https://blog.csdn.net/Mr_Liangxiaobai/article/details/114870466 "详情2")
+<div align=center><img src="https://img-blog.csdnimg.cn/20210316104003630.gif"/></div>
