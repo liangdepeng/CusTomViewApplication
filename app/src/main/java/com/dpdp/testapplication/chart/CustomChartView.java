@@ -77,7 +77,12 @@ public class CustomChartView extends View {
         return super.isInEditMode();
     }
 
-    // 坐标
+    /**
+     * @param xList x轴刻度文字
+     * @param yList y轴刻度文字
+     * @param chartYList 图标数据的值，对应每个x轴刻度一一对应
+     * @param config 图标配置 {@link ChartConfig}   测试效果Demo-> {@link ChartActivity}
+     */
     public void setData(List<String> xList, List<Integer> yList, List<Integer> chartYList, ChartConfig config) {
         if (xList != null && yList != null) {
             xDatas.clear();
@@ -263,7 +268,7 @@ public class CustomChartView extends View {
             canvas.drawPath(mLinePath, mLinePaint);
         }
 
-        if (chartConfig.isOpenShade) {
+        if (canSupportDrawShade()) {
             if (chartConfig.isNeedAnim) {
                 if (progress > 95) {
                     // 折线图添加动画的话 阴影这边需要稍微做一个动画效果处理一下  体验比闪现更好
@@ -278,6 +283,10 @@ public class CustomChartView extends View {
                 canvas.drawPath(mShaderPath, mShaderPaint);
             }
         }
+    }
+
+    private boolean canSupportDrawShade() {
+        return chartConfig.isOpenShade && chartConfig.shadeColors != null && chartConfig.shadeColors.length >= 2;
     }
 
     private void drawText(Canvas canvas) {
