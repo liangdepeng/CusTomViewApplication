@@ -2,6 +2,7 @@ package com.dpdp.testapplication.base;
 
 import com.dpdp.testapplication.chart.ChartActivity;
 import com.dpdp.testapplication.livelike.LiveLikeTestActivity;
+import com.dpdp.testapplication.text.FitTextActivity;
 import com.dpdp.testapplication.text.TextActivity;
 
 /**
@@ -17,6 +18,8 @@ public enum ClassEnum {
     ACTIVITY_LIVE_LIKE_TEST("直播效果测试点赞", "jumpUrl", "tag", LiveLikeTestActivity.class),
     // textView 跳动
     ACTIVITY_TEXT_VIEW_DANCE_TEST("textView 跳动","jumpUrl","tag",TextActivity.class),
+    // 自适应Textview
+    ACTIVITY_TEXT_VIEW_FIT_TEST("textView 自适应","jumpUrl","tag", FitTextActivity.class),
     // 折线图
     ACTIVITY_CUSTOM_CHART_TEST("折线图","jumpUrl","tag",ChartActivity.class);
 

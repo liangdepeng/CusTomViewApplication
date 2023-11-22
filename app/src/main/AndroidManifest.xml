@@ -19,6 +19,9 @@
                         </intent-filter>
         </activity>
 
+        <activity android:name=".text.FitTextActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".chart.ChartActivity"
             android:screenOrientation="portrait"/>
 

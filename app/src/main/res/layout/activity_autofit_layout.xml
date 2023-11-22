@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.dpdp.testapplication.text.AutoFitTextView
+        android:id="@+id/fit_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_blue_light"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="wrap"
+        tools:text="12312sdf测2s12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试12312sdf测2s测试" />
+
+    <EditText
+        android:id="@+id/edit"
+        android:layout_width="0dp"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="12dp"
+        android:hint="输入最大尺寸"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/size_btn"
+        app:layout_constraintTop_toBottomOf="@+id/fit_tv" />
+
+    <Button
+        android:id="@+id/size_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:includeFontPadding="false"
+        android:text="设置"
+        app:layout_constraintBottom_toBottomOf="@+id/edit"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/edit"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edit" />
+
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="12dp"
+        android:text="添加字符"
+        app:layout_constraintTop_toBottomOf="@+id/size_btn" />
+
+    <Button
+        android:id="@+id/sub_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:text="删减字符"
+        app:layout_constraintTop_toBottomOf="@+id/add_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
