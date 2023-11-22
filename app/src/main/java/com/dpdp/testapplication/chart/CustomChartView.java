@@ -269,7 +269,7 @@ public class CustomChartView extends View {
                     // 折线图添加动画的话 阴影这边需要稍微做一个动画效果处理一下  体验比闪现更好
                     Shader linearGradient = new LinearGradient(0, 0, 0, getHeight(), chartConfig.shadeColors, null, Shader.TileMode.CLAMP);
                     mShaderPaint.setShader(linearGradient);
-                    mShaderPaint.setAlpha((int) (255 * (progress - 95) / 20f));
+                    mShaderPaint.setAlpha((int) (255 * (progress - 95) / 5f));
                     canvas.drawPath(mShaderPath, mShaderPaint);
                 }
             } else {

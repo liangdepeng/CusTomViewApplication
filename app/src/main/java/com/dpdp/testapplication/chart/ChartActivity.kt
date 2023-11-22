@@ -83,8 +83,8 @@ class ChartActivity : BaseVBActivity<ActivityChartTestLayoutBinding>() {
             setTextColor(Color.BLUE)
             setOpenShade(true)
             setShadeColors(intArrayOf(
-                Color.argb(200,Color.red(Color.RED),Color.green(Color.RED),Color.blue(Color.RED)),
                 Color.argb(100,Color.red(Color.RED),Color.green(Color.RED),Color.blue(Color.RED)),
+                Color.argb(60,Color.red(Color.RED),Color.green(Color.RED),Color.blue(Color.RED)),
                 Color.argb(0,Color.red(Color.RED),Color.green(Color.RED),Color.blue(Color.RED))
             ))
             setTextSize(22)
