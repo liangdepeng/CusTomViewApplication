@@ -12,28 +12,32 @@
         android:theme="@style/Theme.TestApplication">
 
         <activity android:name=".MainActivity">
-                        <intent-filter>
-                            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                            <category android:name="android.intent.category.LAUNCHER" />
-                        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
-        <activity android:name=".text.FitTextActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".text.FitTextActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".chart.ChartActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".chart.ChartActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".livelike.LiveLikeTestActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
 
         <activity
             android:name=".text.TextActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".text.PaddingTestActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

@@ -10,6 +10,7 @@ import com.dpdp.testapplication.base.ClassAdapter;
 import com.dpdp.testapplication.base.ClassBean;
 import com.dpdp.testapplication.base.ClassEnum;
 import com.dpdp.testapplication.databinding.ActivityMainBinding;
+import com.dpjh.nativelib.NativeLib;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         mainBinding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(mainBinding.getRoot());
         initView();
+
+      //  new NativeLib().test();
     }
 
     private void initView() {

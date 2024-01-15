@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="正常的Textview显示:(红色部分为NoPaddingTv，正常TextView包括蓝色部分),这里做个对比："
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="一二三四五六"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/testTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:text="一二三四五六"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv2"
+        app:layout_constraintLeft_toLeftOf="@+id/tv2"
+        app:layout_constraintTop_toTopOf="@+id/tv2" />
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:text="includeFontPadding=false的Textview显示:"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv2" />
+
+    <TextView
+        android:id="@+id/tv4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:includeFontPadding="false"
+        android:text="一二三四五六"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv3" />
+
+    <TextView
+        android:id="@+id/tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:text="NoPadding Textview (考虑textsize 实现 nopadding):"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv4" />
+
+
+    <LinearLayout
+        android:id="@+id/ll0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv5">
+
+        <TextView
+            android:id="@+id/no_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:text="一"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/no_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/no_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二三"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/no_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二三四"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/no_padding_tv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/holo_blue_light"
+        android:ellipsize="none"
+        android:scrollbars="horizontal"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="一二三四五六七八九十"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/ll0" />
+
+    <TextView
+        android:id="@+id/tv6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:text="NoPadding Textview (不考虑textsize 实现 nopadding):"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/no_padding_tv" />
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv6">
+
+        <TextView
+            android:id="@+id/error_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:text="一"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/error_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/error_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二三"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/error_tv4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/holo_blue_light"
+            android:text="一二三四"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/error_tv5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="一二三四五六七八九十"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
