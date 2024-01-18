@@ -76,7 +76,6 @@ public class NumberDanceTextView extends AppCompatTextView {
 
             // 相同则取消更新;
             if (0 == compare(startValue, targetValue)) return;
-
             // 设置估值器
             DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
             // 属性动画

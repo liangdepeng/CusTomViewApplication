@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="my_textswitcher_style">
+        <item name="android:includeFontPadding">false</item>
+        <item name="singleLine">true</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
+
+</resources>

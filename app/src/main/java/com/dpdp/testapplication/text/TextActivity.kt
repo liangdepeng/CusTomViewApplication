@@ -3,8 +3,11 @@ package com.dpdp.testapplication.text
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
+import android.widget.Toast
+import com.dpdp.testapplication.R
 import com.dpdp.testapplication.base.BaseActivity
 import com.dpdp.testapplication.databinding.AppActivityTextLayoutBinding
+import java.util.ArrayList
 
 /**
  * Created by ldp.
@@ -30,6 +33,16 @@ class TextActivity : BaseActivity() {
             startNumDance()
         }
 
+        val list = ArrayList<String>()
+        for (i in 0..9) { list.add("测试文字第${i}行") }
+        rootView.mytextswicher.apply {
+            setTextAppearance(R.style.my_textswitcher_style)
+            setContentAutoLoop(list, 2500)
+            setChildClickListener { content, index ->
+                Toast.makeText(this@TextActivity, "$content 被点击 index-> $index", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
     private fun startNumDance() {
@@ -51,7 +64,7 @@ class TextActivity : BaseActivity() {
         }
 
         try {
-            rootView.numTextTv.setNumberText(endValue, 3000, true, startValue,2)
+            rootView.numTextTv.setNumberText(endValue, 3000, true, startValue, 2)
         } catch (e: NumberFormatException) {
             e.printStackTrace()
             showToast("请输入正确格式的数字~")
