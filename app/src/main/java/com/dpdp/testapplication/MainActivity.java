@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mainBinding.getRoot());
         initView();
 
-      //  new NativeLib().test();
+        // native jni test
+        new NativeLib().test();
     }
 
     private void initView() {
