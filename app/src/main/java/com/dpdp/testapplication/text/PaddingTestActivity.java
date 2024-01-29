@@ -3,6 +3,9 @@ package com.dpdp.testapplication.text;
 import com.dpdp.testapplication.base.BaseVBActivity;
 import com.dpdp.testapplication.databinding.ActivityPaddingTestBinding;
 
+/**
+ * NoPadding Textview 测试
+ */
 public class PaddingTestActivity extends BaseVBActivity<ActivityPaddingTestBinding> {
 
     @Override

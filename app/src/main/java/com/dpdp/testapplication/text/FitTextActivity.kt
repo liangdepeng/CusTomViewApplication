@@ -4,6 +4,9 @@ import android.widget.Toast
 import com.dpdp.testapplication.base.BaseVBActivity
 import com.dpdp.testapplication.databinding.ActivityAutofitLayoutBinding
 
+/**
+ * 自适应 TextView 展示
+ */
 class FitTextActivity : BaseVBActivity<ActivityAutofitLayoutBinding>() {
 
     private var showStr = "我是一段测试的文字test"

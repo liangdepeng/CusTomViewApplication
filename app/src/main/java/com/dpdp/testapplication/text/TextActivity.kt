@@ -14,9 +14,7 @@ import java.util.ArrayList
  *
  * Date: 2021-03-15
  *
- * Summary:
- *
- * api path:
+ * Summary: 数字跳动动画、文字垂直跑马灯切换 测试
  */
 class TextActivity : BaseActivity() {
 

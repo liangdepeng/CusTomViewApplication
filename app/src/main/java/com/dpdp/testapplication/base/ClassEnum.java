@@ -1,6 +1,7 @@
 package com.dpdp.testapplication.base;
 
 import com.dpdp.testapplication.chart.ChartActivity;
+import com.dpdp.testapplication.dialog.DialogTestActivity;
 import com.dpdp.testapplication.livelike.LiveLikeTestActivity;
 import com.dpdp.testapplication.text.FitTextActivity;
 import com.dpdp.testapplication.text.PaddingTestActivity;
@@ -24,7 +25,9 @@ public enum ClassEnum {
     // NoPadding Textview
     ACTIVITY_TEXT_VIEW_NO_PADDING_TEST("NoPadding textView","jumpUrl","tag", PaddingTestActivity.class),
     // 折线图
-    ACTIVITY_CUSTOM_CHART_TEST("折线图","jumpUrl","tag",ChartActivity.class);
+    ACTIVITY_CUSTOM_CHART_TEST("折线图","jumpUrl","tag",ChartActivity.class),
+    // Dialog Test
+    ACTIVITY_DIALOG_TEST("弹窗","jumpUrl","tag", DialogTestActivity.class);
 
     private String desc;
 

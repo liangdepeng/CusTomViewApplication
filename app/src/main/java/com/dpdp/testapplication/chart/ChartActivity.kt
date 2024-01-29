@@ -4,6 +4,9 @@ import android.graphics.Color
 import com.dpdp.testapplication.base.BaseVBActivity
 import com.dpdp.testapplication.databinding.ActivityChartTestLayoutBinding
 
+/**
+ * 自定义折线图 测试
+ */
 class ChartActivity : BaseVBActivity<ActivityChartTestLayoutBinding>() {
 
     override fun initContentView() {

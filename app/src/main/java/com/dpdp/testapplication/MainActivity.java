@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
         // native jni test
-        new NativeLib().test();
+       // new NativeLib().test();
     }
 
     private void initView() {

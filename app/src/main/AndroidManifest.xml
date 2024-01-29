@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication">
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,23 +22,32 @@
         </activity>
 
         <activity
+            android:name=".dialog.DialogTestActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".text.FitTextActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".chart.ChartActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".livelike.LiveLikeTestActivity"
-            android:screenOrientation="portrait"></activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".text.TextActivity"
-            android:screenOrientation="portrait"></activity>
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".text.PaddingTestActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
 
     </application>
