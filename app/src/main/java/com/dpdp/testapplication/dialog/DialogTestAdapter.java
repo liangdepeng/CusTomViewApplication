@@ -13,7 +13,6 @@ import com.dpdp.testapplication.databinding.ItemDialogTestBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class DialogTestAdapter extends RecyclerView.Adapter<DialogTestAdapter.ViewHolder> {
 
@@ -79,7 +78,8 @@ public class DialogTestAdapter extends RecyclerView.Adapter<DialogTestAdapter.Vi
         void OnItemClick(String itemShowContent, int position);
     }
 
-    private final String[] btns = new String[]{LOADING,TIPS};
+    private final String[] btns = new String[]{LOADING,TIPS,AUTO_FIX};
     public static final String LOADING = "加载弹窗";
     public static final String TIPS = "提示弹窗";
+    public static final String AUTO_FIX = "锚点view弹窗";
 }

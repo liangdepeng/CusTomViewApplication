@@ -25,36 +25,43 @@ public class BaseDialog extends Dialog {
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
-    private BaseDialog(@NonNull Context context, Builder builder) {
+    public BaseDialog(@NonNull Context context, Builder builder) {
         super(context);
         initDialog(builder);
     }
 
-    private BaseDialog(@NonNull Context context, int themeResId, Builder builder) {
+    public BaseDialog(@NonNull Context context, int themeResId, Builder builder) {
         super(context, themeResId);
         initDialog(builder);
     }
 
-    private BaseDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener, Builder builder) {
+    public BaseDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener, Builder builder) {
         super(context, cancelable, cancelListener);
         initDialog(builder);
     }
+
+    @NonNull
+    protected View getContentView(){
+        return contentView;
+    }
+
+    private View contentView;
 
     private void initDialog(Builder builder) {
         if (builder.layoutResId == 0) {
             throw new RuntimeException("the layoutResId not set yet");
         }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        View view = LayoutInflater.from(getContext()).inflate(builder.layoutResId, null, false);
-        setContentView(view);
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        contentView = LayoutInflater.from(getContext()).inflate(builder.layoutResId, null, false);
+        setContentView(contentView);
+        ViewGroup.LayoutParams layoutParams = contentView.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = builder.dialogWidth == 0 ? layoutParams.width : builder.dialogWidth;
             layoutParams.height = builder.dialogHeight == 0 ? layoutParams.height : builder.dialogHeight;
-            view.setLayoutParams(layoutParams);
+            contentView.setLayoutParams(layoutParams);
         }
         if (builder.viewBindCallBack != null) {
-            builder.viewBindCallBack.OnBindView(view, this);
+            builder.viewBindCallBack.OnBindView(contentView, this);
         }
         Window window = getWindow();
         if (window != null) {
@@ -168,7 +175,7 @@ public class BaseDialog extends Dialog {
 
     public static class Builder {
 
-        private Activity context;
+        protected Activity context;
         private float dimAmount = 0.5f;
         private int layoutResId;
         private boolean outSideCanCancel = true;
@@ -177,7 +184,7 @@ public class BaseDialog extends Dialog {
         private int dialogWidth;
         private int dialogHeight;
         private int gravity = Gravity.CENTER;
-        private int themeResId;
+        protected int themeResId;
         private OnKeyListener keyListener;
         private IViewBindCallBack viewBindCallBack;
 
