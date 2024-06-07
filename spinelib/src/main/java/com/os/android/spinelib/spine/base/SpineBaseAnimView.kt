@@ -1,4 +1,4 @@
-package com.tcy365.m.hallhomemodule.view.spine.base
+package com.os.android.spinelib.spine.base
 
 import android.content.Context
 import android.graphics.PixelFormat

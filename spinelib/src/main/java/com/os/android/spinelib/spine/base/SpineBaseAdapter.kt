@@ -1,4 +1,4 @@
-package com.tcy365.m.hallhomemodule.view.spine.base
+package com.os.android.spinelib.spine.base
 
 import android.app.Activity
 import android.text.TextUtils
@@ -75,7 +75,7 @@ abstract class SpineBaseAdapter : ApplicationAdapter {
     /**
      * 动画的点击回调
      */
-    fun setOnSpineClickListener(spineClickListener: OnSpineClickListener) {
+    fun setOnSpineClickListener(spineClickListener: OnSpineClickListener?) {
         mSpineClickListener = spineClickListener
     }
 
@@ -84,7 +84,7 @@ abstract class SpineBaseAdapter : ApplicationAdapter {
      * 多个Spine动画对象需要依次创建，不可以同时创建多个
      * 多以需要设置创建完成的异步回调，并配合tag来进行判断
      */
-    fun setOnCreatedListener(onSpineCreatedListener: OnSpineCreatedListener) {
+    fun setOnCreatedListener(onSpineCreatedListener: OnSpineCreatedListener?) {
         mSpineCreatedListener = onSpineCreatedListener
     }
 
@@ -346,7 +346,7 @@ abstract class SpineBaseAdapter : ApplicationAdapter {
      * @param attachmentName 装饰名称
      * @return
      */
-    fun setAttachment(slotName: String, attachmentName: String): Boolean {
+    fun setAttachment(slotName: String?, attachmentName: String?): Boolean {
         if (mSkeleton == null || TextUtils.isEmpty(slotName)) {
             return false
         }
@@ -366,7 +366,7 @@ abstract class SpineBaseAdapter : ApplicationAdapter {
      * @param skinName 皮肤名称
      * @return
      */
-    fun setSkin(skinName: String): Boolean {
+    fun setSkin(skinName: String?): Boolean {
         if (mSkeleton == null || mSkeletonData == null || TextUtils.isEmpty(skinName)) {
             return false
         }
@@ -380,8 +380,8 @@ abstract class SpineBaseAdapter : ApplicationAdapter {
     /**
      * 创建完成的回调
      */
-    open interface OnSpineCreatedListener {
-        fun onCreated(tag: String)
+    interface OnSpineCreatedListener {
+        fun onCreated(tag: String?)
     }
 
     private var spineBaseAnimView :SpineBaseAnimView?=null

@@ -1,4 +1,4 @@
-package com.tcy365.m.hallhomemodule.view.spine
+package com.os.android.spinelib.spine;
 
 /**
  * 每个 SpineAnim 配置

@@ -1,4 +1,4 @@
-package com.tcy365.m.hallhomemodule.view.spine
+package com.os.android.spinelib.spine
 
 import android.app.Activity
 import android.os.Handler
@@ -6,12 +6,10 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
+
 import com.badlogic.gdx.utils.GdxNativesLoader
-import com.tcy365.m.hallhomemodule.view.spine.base.OnSpineClickListener
-import com.tcy365.m.hallhomemodule.view.spine.base.SpineBaseAdapter.OnSpineCreatedListener
+import com.os.android.spinelib.spine.base.OnSpineClickListener
+import com.os.android.spinelib.spine.base.SpineBaseAdapter
 import java.util.concurrent.ConcurrentLinkedQueue
 import java.util.concurrent.Executors
 
@@ -24,27 +22,34 @@ import java.util.concurrent.Executors
  * Date: 2024/6/5 11:28
  * Author: liangdp
  */
-class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver {
+class SpineAnim private constructor(private var builder: Builder?) {
 
     companion object {
         init {
             GdxNativesLoader.load()
         }
 
-       // var index = 0
+        private var testIndex = 0
+        private const val TAG = "SpineAnim6"
         private val singleThreadPool = Executors.newSingleThreadExecutor()
         private val spineViewQueue = ConcurrentLinkedQueue<Builder>()
         private var isCreating = false
+        private var fromUserShow = false
         private val handler = Handler(Looper.getMainLooper())
     }
 
+    private var isAddQueue = false
     private var spineView: View? = null
+    private var containerView: ViewGroup? = null
     private var activity: Activity? = null
     private lateinit var spineAdapter: SimpleSpineAdapter
 
     init {
-        spineViewQueue.add(builder)
-        createNextSpineAnim()
+        if (builder?.isDirectDisplay == true) {
+            spineViewQueue.add(builder)
+            isAddQueue = true
+            createNextSpineAnim()
+        }
     }
 
     private fun createNextSpineAnim() {
@@ -59,13 +64,14 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
                     return@post
                 val builder = spineViewQueue.poll() ?: return@post
                 isCreating = true
-                //Log.e("spspspps","开始绘制第${index++}个动画  ${builder.tag}")
+                isAddQueue = false
+                Log.e(TAG, "开始绘制第${++testIndex}个动画  ${builder.tag}")
                 createSpineAnim(builder)
             }
         }
     }
 
-    fun showSpineAnimView(glSurfaceView: View?, container: ViewGroup?) {
+    private fun showSpineAnimView(glSurfaceView: View?, container: ViewGroup?) {
         if (glSurfaceView == null || container == null)
             return
         container.post {
@@ -81,6 +87,21 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
         }
     }
 
+    fun show() {
+        if (isAddQueue) {
+            Log.e(TAG, "已加入等待队列")
+            return
+        }
+        if (spineView != null) {
+            Log.e(TAG, "已完成不能重复绘制")
+            return
+        }
+        spineViewQueue.add(builder)
+        isAddQueue = true
+        fromUserShow = true
+        createNextSpineAnim()
+    }
+
     fun getSpineView(): View? {
         return spineView
     }
@@ -88,7 +109,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
     fun release() {
         try {
             spineAdapter.dispose()
-        } catch (e :Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
@@ -96,6 +117,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
     private fun createSpineAnim(builder: Builder?): View? {
         if (builder == null) return null
         activity = builder.activity
+        containerView = builder.container
         val animConfigs = builder.animationConfigs
         spineAdapter = SimpleSpineAdapter(
             builder.altasPath, builder.skeletonPath,
@@ -104,11 +126,11 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
             setViewScale(builder.viewScaleX, builder.viewScaleY)
         }
 
-        spineAdapter.setOnCreatedListener(object : OnSpineCreatedListener {
-            override fun onCreated(tag: String) {
+        spineAdapter.setOnCreatedListener(object : SpineBaseAdapter.OnSpineCreatedListener {
+            override fun onCreated(tag: String?) {
                 handler.post {
                     isCreating = false
-                    //Log.e("spspspps","结束绘制动画")
+                    Log.e(TAG, "结束绘制动画 - $tag")
                     createNextSpineAnim()
                     builder.onSpineCreatedListener?.onCreated(tag)
                 }
@@ -116,7 +138,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
         })
 
         if (builder.onSpineClickListener != null) {
-            spineAdapter.setOnSpineClickListener(object :OnSpineClickListener{
+            spineAdapter.setOnSpineClickListener(object : OnSpineClickListener {
                 override fun onClick() {
                     handler.post {
                         builder.onSpineClickListener?.onClick()
@@ -127,7 +149,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
 
         spineView = spineAdapter.create(builder.activity, zOrderOnTop = builder.zOrderOnTop)
 
-        if (builder.isDirectDisplay) {
+        if (builder.isDirectDisplay || fromUserShow) {
             if (builder.delayMills > 0) {
                 handler.postDelayed({
                     showSpineAnimView(spineView, builder.container)
@@ -156,7 +178,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
         // SpineView 动画容器
         var container: ViewGroup? = null
             private set
-        var onSpineCreatedListener: OnSpineCreatedListener? = null
+        var onSpineCreatedListener: SpineBaseAdapter.OnSpineCreatedListener? = null
             private set
         var onSpineClickListener: OnSpineClickListener? = null
             private set
@@ -172,7 +194,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
             private set
 
         // 是否直接显示  可手动控制显示时机
-        var isDirectDisplay: Boolean = false
+        var isDirectDisplay: Boolean = true
             private set
 
         // 延迟显示 仅在 isDirectDisplay = true 时生效
@@ -209,7 +231,7 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
             return this
         }
 
-        fun setOnSpineCreatedListener(onSpineCreatedListener: OnSpineCreatedListener?): Builder {
+        fun setOnSpineCreatedListener(onSpineCreatedListener: SpineBaseAdapter.OnSpineCreatedListener?): Builder {
             this.onSpineCreatedListener = onSpineCreatedListener
             return this
         }
@@ -243,14 +265,5 @@ class SpineAnim private constructor(builder: Builder?) : LifecycleEventObserver 
         fun create(): SpineAnim {
             return SpineAnim(this)
         }
-    }
-
-    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
-//        if (event==Lifecycle.Event.ON_PAUSE){
-//
-//        } else if (event==Lifecycle.Event.ON_RESUME){
-//
-//        }
-
     }
 }

@@ -1,7 +1,8 @@
-package com.tcy365.m.hallhomemodule.view.spine
+package com.os.android.spinelib.spine
 
 import com.badlogic.gdx.Files
-import com.tcy365.m.hallhomemodule.view.spine.base.SpineBaseAdapter
+import com.os.android.spinelib.spine.base.SpineBaseAdapter
+
 
 /**
  * spine动画适配器

@@ -1,4 +1,4 @@
-package com.tcy365.m.hallhomemodule.view.spine.base
+package com.os.android.spinelib.spine.base
 
 /**
  * Created by J.Tommy on 17/5/31.

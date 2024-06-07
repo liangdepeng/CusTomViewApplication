@@ -4,8 +4,8 @@ import android.widget.Toast;
 
 import com.dpdp.testapplication.base.BaseVBActivity;
 import com.dpdp.testapplication.databinding.ActivitySpineTestBinding;
-import com.tcy365.m.hallhomemodule.view.spine.SpineAnim;
-import com.tcy365.m.hallhomemodule.view.spine.SpineAnimConfig;
+import com.os.android.spinelib.spine.SpineAnim;
+import com.os.android.spinelib.spine.SpineAnimConfig;
 
 
 /**
@@ -32,8 +32,8 @@ public class SpineTestActivity extends BaseVBActivity<ActivitySpineTestBinding> 
                 }).create();
 
         new SpineAnim.Builder(this)
-                .setAltasPath("testspine/hero.atlas")
-                .setSkeletonPath("testspine/hero.json")
+                .setAltasPath(SpineAssetResEnum.HERO.getAtlasPath())
+                .setSkeletonPath(SpineAssetResEnum.HERO.getJsonPath())
                 .setContainer(mViewBinding.spineFl2)
                 .setViewScale(1f,1f)
                 .setDirectDisplay(true)
@@ -42,14 +42,15 @@ public class SpineTestActivity extends BaseVBActivity<ActivitySpineTestBinding> 
                 .addAnimation(new SpineAnimConfig(0,"attack",true,5f))
                 .addAnimation(new SpineAnimConfig(0,"walk",true,5f))
                 .setOnSpineClickListener(() -> {
-                    Toast.makeText(this,"tank clicked!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"hero clicked!",Toast.LENGTH_SHORT).show();
                 }).create();
 
 
+        SpineAssetResEnum stretchyman = SpineAssetResEnum.getSpineAssetsByName("stretchy_man");
 
         new SpineAnim.Builder(this)
-                .setAltasPath("testspine/stretchyman.atlas")
-                .setSkeletonPath("testspine/stretchyman.json")
+                .setAltasPath(stretchyman.getAtlasPath())
+                .setSkeletonPath(stretchyman.getJsonPath())
                 .setContainer(mViewBinding.spineFl3)
                 .setViewScale(1f,1f)
                 .setDirectDisplay(true)
@@ -57,7 +58,7 @@ public class SpineTestActivity extends BaseVBActivity<ActivitySpineTestBinding> 
                 .addAnimation(new SpineAnimConfig(0,"sneak",true,0f))
                 .setOnSpineCreatedListener(tag -> mViewBinding.scrollview.smoothScrollTo(0,0))
                 .setOnSpineClickListener(() -> {
-                    Toast.makeText(this,"tank clicked!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"stretchy_man clicked!",Toast.LENGTH_SHORT).show();
                 }).create();
 
 //        new SpineAnim.Builder(this)
