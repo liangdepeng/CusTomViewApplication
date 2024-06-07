@@ -1,0 +1,104 @@
+
+matching.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+UImatching_img_haimian
+  rotate: true
+  xy: 320, 153
+  size: 357, 41
+  orig: 358, 41
+  offset: 1, 0
+  index: -1
+boat_1
+  rotate: true
+  xy: 56, 75
+  size: 435, 262
+  orig: 437, 264
+  offset: 1, 1
+  index: -1
+boat_2
+  rotate: true
+  xy: 455, 233
+  size: 277, 86
+  orig: 280, 88
+  offset: 2, 1
+  index: -1
+body
+  rotate: true
+  xy: 696, 79
+  size: 164, 160
+  orig: 164, 160
+  offset: 0, 0
+  index: -1
+eye_1
+  rotate: false
+  xy: 498, 7
+  size: 165, 97
+  orig: 179, 106
+  offset: 6, 4
+  index: -1
+eye_2
+  rotate: false
+  xy: 2, 6
+  size: 115, 62
+  orig: 117, 64
+  offset: 1, 1
+  index: -1
+eye_3
+  rotate: false
+  xy: 546, 147
+  size: 148, 96
+  orig: 162, 108
+  offset: 7, 8
+  index: -1
+hand_1
+  rotate: true
+  xy: 450, 106
+  size: 116, 94
+  orig: 116, 94
+  offset: 0, 0
+  index: -1
+hand_2
+  rotate: true
+  xy: 363, 165
+  size: 57, 33
+  orig: 57, 33
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 543, 245
+  size: 265, 214
+  orig: 277, 214
+  offset: 12, 0
+  index: -1
+water_1
+  rotate: true
+  xy: 2, 70
+  size: 440, 52
+  orig: 442, 54
+  offset: 1, 1
+  index: -1
+water_2
+  rotate: true
+  xy: 363, 224
+  size: 286, 90
+  orig: 291, 92
+  offset: 2, 1
+  index: -1
+water_3
+  rotate: false
+  xy: 119, 2
+  size: 377, 71
+  orig: 379, 73
+  offset: 1, 1
+  index: -1
+water_4
+  rotate: false
+  xy: 320, 92
+  size: 128, 59
+  orig: 168, 134
+  offset: 2, 30
+  index: -1

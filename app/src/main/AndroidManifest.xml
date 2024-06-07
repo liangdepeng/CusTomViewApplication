@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TestApplication">
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,41 +19,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".dialog.DialogTestActivity"
             android:exported="false" />
-
         <activity
             android:name=".text.FitTextActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".chart.ChartActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".livelike.LiveLikeTestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".text.TextActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".text.PaddingTestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".dialog.AutoFitDialogActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".spine.SpineTestActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.dpdp.testapplication.base;
 import com.dpdp.testapplication.chart.ChartActivity;
 import com.dpdp.testapplication.dialog.DialogTestActivity;
 import com.dpdp.testapplication.livelike.LiveLikeTestActivity;
+import com.dpdp.testapplication.spine.SpineTestActivity;
 import com.dpdp.testapplication.text.FitTextActivity;
 import com.dpdp.testapplication.text.PaddingTestActivity;
 import com.dpdp.testapplication.text.TextActivity;
@@ -27,7 +28,8 @@ public enum ClassEnum {
     // 折线图
     ACTIVITY_CUSTOM_CHART_TEST("折线图","jumpUrl","tag",ChartActivity.class),
     // Dialog Test
-    ACTIVITY_DIALOG_TEST("弹窗","jumpUrl","tag", DialogTestActivity.class);
+    ACTIVITY_DIALOG_TEST("弹窗","jumpUrl","tag", DialogTestActivity.class),
+    ACTIVITY_SOINE_ANIM_ANDROID("spine动画android展示","jumpUrl","tag", SpineTestActivity.class);
 
     private String desc;
 
