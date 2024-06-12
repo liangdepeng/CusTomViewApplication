@@ -34,11 +34,11 @@ class SpineAnim private constructor(private var builder: Builder?) {
         private val singleThreadPool = Executors.newSingleThreadExecutor()
         private val spineViewQueue = ConcurrentLinkedQueue<Builder>()
         private var isCreating = false
-        private var fromUserShow = false
         private val handler = Handler(Looper.getMainLooper())
     }
 
     private var isAddQueue = false
+    private var fromUserShow = false
     private var spineView: View? = null
     private var containerView: ViewGroup? = null
     private var activity: Activity? = null

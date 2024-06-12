@@ -46,8 +46,8 @@ dependencies {
     implementation "com.esotericsoftware.spine:spine-libgdx:3.8.55.1"
     implementation "com.badlogicgames.gdx:gdx:$libgdxVersion"
     implementation "com.badlogicgames.gdx:gdx-backend-android:$libgdxVersion"
-    implementation "com.badlogicgames.gdx:gdx-platform:$libgdxVersion:natives-armeabi"
-    implementation "com.badlogicgames.gdx:gdx-platform:$libgdxVersion:natives-arm64-v8a"
+   // implementation "com.badlogicgames.gdx:gdx-platform:$libgdxVersion:natives-armeabi"
+   // implementation "com.badlogicgames.gdx:gdx-platform:$libgdxVersion:natives-arm64-v8a"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
