@@ -1,5 +1,6 @@
 # CusTomViewApplication
 ## 安卓学习自定义View以及一些动效等等记录帖子
+>
 ##### 1、点赞效果/飘爱心效果 点赞计时器
 ##### 2、TextView 简易跳动效果
 ##### 3、TextView 去掉默认Padding
