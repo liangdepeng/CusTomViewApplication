@@ -8,7 +8,7 @@
 <div align=center><img src="https://img-blog.csdnimg.cn/20210316104003630.gif"/></div>
 
 ### 3、TextView 去掉默认Padding  [详情请点击这里跳转](https://blog.csdn.net/Mr_Liangxiaobai/article/details/135557584 "详情3")
-<div align=center><img src="https://img-blog.csdnimg.cn/direct/31ea0c5b66b248b598a6fbb7e693752a.png"/></div>
+<div align=center><img src="https://img-blog.csdnimg.cn/direct/738edbe6557e422e99dbce8fdc819c59.png"/></div>
 
 ### 4、TextView 单行或者固定宽度自适应字体大小缩放 具体请运行源码查看
 <div align=center><img src="https://img-blog.csdnimg.cn/direct/2c1016e4754f4810b72fb9b974b40802.gif"/></div>
