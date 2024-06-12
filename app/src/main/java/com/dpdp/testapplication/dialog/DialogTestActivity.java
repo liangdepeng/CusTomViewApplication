@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.dpdp.testapplication.R;
 import com.dpdp.testapplication.activityutil.ActivityPluginUtil;
 import com.dpdp.testapplication.base.BaseVBActivity;
 import com.dpdp.testapplication.databinding.ActivityDialogTestBinding;
@@ -49,6 +51,19 @@ public class DialogTestActivity extends BaseVBActivity<ActivityDialogTestBinding
             DialogManager.Companion.showTipsDialog(DialogTestActivity.this,"标题五","内容一黑hi额hi额hi额hi额hi额诶和hi",true);
         }else if (DialogTestAdapter.AUTO_FIX.equals(itemShowContent)){
             startActivity(new Intent(this, AutoFitDialogActivity.class));
+        }else if (DialogTestAdapter.PART_SHADOW.equals(itemShowContent)){
+            new PartShadowPopup.Builder(this)
+                    .setPopupWidth(getResources().getDisplayMetrics().widthPixels)
+                    .setAnchorView(mViewBinding.recyclerview)
+                    .setDimAmount(0.6f)
+                    .setDirectionByAnchorView(PartShadowPopup.ANCHOR_VIEW_BOTTOM)
+                    .setLayoutResId(R.layout.dialog_popup_test)
+                    .setViewBindCallback(new PartShadowPopup.IViewBindCallback() {
+                        @Override
+                        public void onBindView(View rootView, PartShadowPopup popupView) {
+
+                        }
+                    }).build().show();
         }
     }
 }

@@ -78,8 +78,9 @@ public class DialogTestAdapter extends RecyclerView.Adapter<DialogTestAdapter.Vi
         void OnItemClick(String itemShowContent, int position);
     }
 
-    private final String[] btns = new String[]{LOADING,TIPS,AUTO_FIX};
+    private final String[] btns = new String[]{LOADING,TIPS,AUTO_FIX,PART_SHADOW};
     public static final String LOADING = "加载弹窗";
     public static final String TIPS = "提示弹窗";
     public static final String AUTO_FIX = "锚点view弹窗";
+    public static final String PART_SHADOW = "局部阴影弹窗";
 }
