@@ -22,7 +22,7 @@ import androidx.lifecycle.LifecycleOwner;
 /**
  * 依附于Activity DecorView的popupView 局部阴影弹窗
  * 解决各种机型适配问题
- *
+ * <p>
  * Author: liangdp
  */
 public class PartShadowPopup implements LifecycleEventObserver {
@@ -188,6 +188,9 @@ public class PartShadowPopup implements LifecycleEventObserver {
                     } else {
                         dialoglp.gravity = Gravity.BOTTOM;
                     }
+                    if (builder.contentGravity == Gravity.LEFT || builder.contentGravity == Gravity.CENTER || builder.contentGravity == Gravity.RIGHT) {
+                        dialoglp.gravity = dialoglp.gravity | builder.contentGravity;
+                    }
 
                     shadowLayout.addView(dialogView, dialoglp);
 
@@ -275,7 +278,7 @@ public class PartShadowPopup implements LifecycleEventObserver {
 
     private void destroyView() {
         try {
-            if (builder.mActivity instanceof FragmentActivity){
+            if (builder.mActivity instanceof FragmentActivity) {
                 ((FragmentActivity) builder.mActivity).getLifecycle().removeObserver(this);
             }
             ViewCompat.removeOnUnhandledKeyEventListener(rootLayout, keyEventListener);
@@ -313,6 +316,8 @@ public class PartShadowPopup implements LifecycleEventObserver {
         private View anchorView;
         //// 相对于 anchorView 显示方向  在某个view 上面或者下面
         private int showType = ANCHOR_VIEW_BOTTOM;
+        // dialog内容相对于屏幕左右显示位置，Gravity.LEFT CENTER RIGHT
+        private int contentGravity = Gravity.LEFT;
         private Activity mActivity;
         private float dimAmount = 0.5f;
         private IViewBindCallback viewBindCallback;
@@ -341,6 +346,11 @@ public class PartShadowPopup implements LifecycleEventObserver {
 
         public Builder setPopupHeight(int popupHeight) {
             this.popupHeight = popupHeight;
+            return this;
+        }
+
+        public Builder setContentGravity(int contentGravity) {
+            this.contentGravity = contentGravity;
             return this;
         }
 

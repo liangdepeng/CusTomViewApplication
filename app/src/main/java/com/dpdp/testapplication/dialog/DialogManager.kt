@@ -85,7 +85,7 @@ class DialogManager {
         fun notifyDialogQueueDismiss() {
             if (showingDialog == null || showingDialog?.isShowing == false) {
                 showingDialog = dialogQueue.poll()
-                showingDialog?.delayShow(1000)
+                showingDialog?.delayShow(200)
             }
         }
 

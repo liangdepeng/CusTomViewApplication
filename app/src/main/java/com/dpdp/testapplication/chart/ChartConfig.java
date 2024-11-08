@@ -9,7 +9,7 @@ public class ChartConfig {
     public boolean isNeedGridLine = true;
     // 在 isNeedGridLine = true 前提上 是否展示 x方向网格线
     public boolean isShowXGridLine = true;
-    // 在 isNeedGridLine = true 前提上 是否展示 x方向网格线
+    // 在 isNeedGridLine = true 前提上 是否展示 y方向网格线
     public boolean isShowYGridLine = true;
     // 是否需要显示 xy轴 刻度 描述
     public boolean isNeedDescription = true;
